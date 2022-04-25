@@ -1,5 +1,5 @@
 <?php
-
+include_once 'header.php';
 require_once('config.php');
 
 echo var_dump($_POST);
@@ -18,25 +18,17 @@ if(isset($_POST['carNumberPlates'])) {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles.css">
-    <title>Hello</title>
-</head>
-
-<body>
-    <p>Iveskite automobilio numerius</p>
-    <form action="./index.php" method="post">
-    <input type="text" name="carNumberPlates" id="text">
-    <input type="submit" value="submit">
-    </form>
-    <a href="./login.php">Log In</a>
+    <div class="form-group">
+        <label>Iveskite automobilio numerius</label>
+        <input type="text" name="plates" class="form-control <?php echo isset($errors['plates']) ? 'is-invalid' : ''; ?>">
+        <div class ="invalid-feedback">
+            <?php echo $errors['plates'] ?>
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="Submit">
+    </div>
     
-</body>
-
-</html>
+<?php
+include_once 'footer.php';
+?>
